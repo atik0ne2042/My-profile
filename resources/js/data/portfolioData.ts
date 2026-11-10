@@ -7,3 +7,4 @@ export const featuredProjects: Project[] = data.featuredProjects as unknown as P
 export const skills: Skill[] = data.skills as unknown as Skill[];
 export const experiences: Experience[] = data.experiences as unknown as Experience[];
 export const galleryPhotos: GalleryPhoto[] = data.galleryPhotos as unknown as GalleryPhoto[];
+

@@ -18,7 +18,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setThemeState] = useState<Theme>('light');
 
   useEffect(() => {
-    // Initial check from URL param, localStorage, or prefers-color-scheme
+    // Default to Light Mode. Only use Dark Mode if visitor explicitly saved 'dark' or ?theme=dark
     let initialTheme: Theme = 'light';
     try {
       const urlParams = new URLSearchParams(window.location.search);
@@ -28,29 +28,16 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         initialTheme = themeParam;
       } else {
         const savedTheme = localStorage.getItem('theme') as Theme | null;
-        if (savedTheme === 'dark' || savedTheme === 'light') {
-          initialTheme = savedTheme;
+        if (savedTheme === 'dark') {
+          initialTheme = 'dark';
         } else {
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          initialTheme = prefersDark ? 'dark' : 'light';
+          initialTheme = 'light';
         }
       }
     } catch (_) {}
 
     setThemeState(initialTheme);
     applyTheme(initialTheme);
-
-    // Listen for system theme changes if user hasn't explicitly set localStorage
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem('theme')) {
-        const newTheme = e.matches ? 'dark' : 'light';
-        setThemeState(newTheme);
-        applyTheme(newTheme);
-      }
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const applyTheme = (t: Theme) => {
