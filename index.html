@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal Developer Portfolio of Md. Atik Hasan — Full-Stack Software Engineer, Mobile App Developer (Flutter & Android), and UI/UX Designer based in Dhaka, Bangladesh.">
+    <meta name="keywords" content="Atik Hasan, Mobile App Developer, Flutter Developer, Laravel Developer, React Developer, Software Engineer, Portfolio, Tour Partner, Padma TV">
+    <meta name="author" content="Md. Atik Hasan">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atikhasan.vercel.app">
+    <link rel="canonical" href="https://atikhasan.vercel.app">
+    <meta property="og:title" content="Atik Hasan — Software Engineer & Mobile Specialist">
+    <meta property="og:description" content="Crafting fast, beautiful mobile experiences with Flutter & Android, and scalable web applications with Laravel & React.">
+    <meta property="og:image" content="/images/profile/atik-portrait.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Google Fonts: Inter / Plus Jakarta Sans + Playfair Display for elegant serif italic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>Atik Hasan — Software Engineer & Mobile Specialist</title>
+
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+        (function() {
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var themeParam = urlParams.get('theme');
+                if (themeParam === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    return;
+                }
+                if (themeParam === 'light') {
+                    document.documentElement.classList.remove('dark');
+                    return;
+                }
+
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#071426] text-[#151515] dark:text-[#F8F7F5] font-sans antialiased selection:bg-[#F07832] selection:text-white transition-colors duration-300">
+    <div id="app"></div>
+    <script type="module" src="/resources/js/main.tsx"></script>
+</body>
+</html>
