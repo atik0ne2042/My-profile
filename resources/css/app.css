@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../js/**/*.{ts,tsx}';
+@source '../views/**/*.blade.php';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-canvas: #F8F7F5;
+  --color-primary-text: #151515;
+  --color-secondary-text: #777777;
+  --color-peach-light: #F6D5CB;
+  --color-pink-soft: #F9E9E7;
+  --color-dark-panel: #191919;
+  --color-dark-surface: #222222;
+  --color-dark-border: #333333;
+  --color-accent-orange: #F07832;
+  --color-border-subtle: #E8E5E2;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8E5E2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d6d1cc;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #071426;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1E3A63;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2A4D7E;
+}
+
+/* Glassmorphism helpers */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(25, 25, 25, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Ambient hero glow */
+.hero-glow {
+  background: radial-gradient(circle at 65% 45%, #F6D5CB 0%, #F9E9E7 40%, rgba(248, 247, 245, 0) 70%);
+}
+
+/* Device screen shadow */
+.shadow-device {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+/* Subtle float animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 6s ease-in-out infinite;
+}

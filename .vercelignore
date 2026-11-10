@@ -1,0 +1,26 @@
+# Dependencies (Vercel builds these automatically)
+node_modules
+vendor
+
+# Raw source assets & archives
+source_materials
+.git
+.github
+tests
+
+# Ephemeral storage and logs
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+*.log
+
+# Development & cache files
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+.phpunit.cache
+.vscode
+.idea
+
