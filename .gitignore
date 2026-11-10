@@ -24,6 +24,7 @@
 /source_materials
 /.vercel
 *.zip
+push_to_github.bat
 _ide_helper.php
 Homestead.json
 Homestead.yaml
